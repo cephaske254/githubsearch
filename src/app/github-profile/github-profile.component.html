@@ -5,13 +5,15 @@
                 <div class="card-header text-center h4 font-weight-bold">
                     Github @{{items.login}}
                 </div>
-                <div class="card-body row justify-content-center">
-                    <img src="{{items.avatar_url}}" height="150px" class="card-image rounded" alt="Avatar Image">
+                <div class="card-body row flex-column align-items-center">
+                    <div class="avatar">
+                        <img src="{{items.avatar_url}}" height="150px" class="card-image rounded" alt="Avatar Image">
+                    </div>
+                    <div class="card-text">
+                        <span class="h4">My Repositories</span><br>
+                        <span class="small font-italic">@{{items.login}}</span>
+                    </div>
                 </div>
-{{repos.length}}
-                <ul>
-                        
-                </ul>
             </div>
         </div>
     </div>
