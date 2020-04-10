@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repo-search.component.css']
 })
 export class RepoSearchComponent implements OnInit {
+  searchKeywords:string;
+  constructor(http:HttpClient) { }
 
-  constructor() { }
 
+  searchRepos(){
+
+  }
   ngOnInit(): void {
   }
 

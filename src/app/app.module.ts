@@ -9,6 +9,8 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { Routes, RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http'
 const appRoutes: Routes = [
   { path: 'search/repos', component: RepoSearchComponent},
   { path: 'search/users', component: UserSearchComponent},
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
