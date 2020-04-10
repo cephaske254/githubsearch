@@ -3,7 +3,7 @@
         <form action="#" (submit)='fetchUserProfile()' #userForm="ngForm" class="form-inline p-1">
             <div class="btn-group">
                 <input type="text" [(ngModel)]='user' class="border btn-sm" placeholder="Username..." name="username">
-                <button type="submit" class="btn btn-sm btn-success mx-1">View</button>
+                <button type="submit" class="btn btn-sm btn-success mx-1">View Profile</button>
             </div>
         </form>
         <div class="col-sm-12 col-md-10 col-lg-8 p-2">
@@ -20,13 +20,14 @@
                         <div class="row">
                             <div class="col-md-6 my-1" *ngFor='let repo of items.repos'>
                                 <a href="{{repo.html_url}}" target="_blank" class="text border-bottom">
-                                    <span class="">{{repo.name}}</span> <br>
+                                    <span class="font-weight-bold">{{repo.name}}</span> <br>
                                     <span class="small px-1" *ngIf="repo.description">{{repo.description}}</span>
                                     <span class="small px-1" *ngIf="!repo.description">No Description</span>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <div class="card-text text-capitalize" *ngIf="items.login=='**Not Found!**'">Please Enter A Valid Github Username</div>
                 </div>
             </div>
         </div>
