@@ -1,13 +1,22 @@
 <div class="container">
     <div class="row justify-content-center">
-        <form action="#" #repoSearchForm="ngForm" class="form-inline">
+        <form action="#" (submit)="searchRepos()" #repoSearchForm="ngForm" class="form-inline">
             <div class="form-group p-1">
                 <input type="text" class="form-control" placeholder="Search Github Repos..." [(ngModel)]="searchKeywords" name="searchKeywords">
             </div>
             <div class="btn-group p-1">
-                <button class="btn btn-success" (submit)="searchRepos()">Search</button>
+                <button class="btn btn-success">Search</button>
             </div>
         </form>
     </div>
+    <p class="small font-italic m-0">Search {{searchKeywords}}...</p>
     <hr>
+    <div class="row text-capitalize">
+        <div class="col-lg-3 col-md-4 col-sm-6 p-1" *ngFor="let item of items;let i=index">
+            <a href="{{item.html_url}}" target="_blank" class="nav-link p-1 m-0 border-bottom">
+                <span class="font-weight-bold">{{item.name}}</span><br>
+                <span class="small">{{item.owner.login}}</span>
+            </a>
+        </div>
+    </div>
 </div>
