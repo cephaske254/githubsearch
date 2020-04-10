@@ -20,6 +20,10 @@ export class RepoSearchComponent implements OnInit {
       this.http.get<RepoSearchInterface>(this.apiUrl + this.searchKeywords).toPromise().then(data => {
         this.items = data['items'];
         this.total_count = data['total_count'];
+        proceed();
+      },error=>{
+        //terminate if failed
+        terminate();
       })
     });
     searchPromise;
