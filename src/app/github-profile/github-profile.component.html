@@ -1,7 +1,13 @@
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row align-items-center flex-column">
+        <form action="#" (submit)='fetchUserProfile()' #userForm="ngForm" class="form-inline p-1">
+            <div class="btn-group">
+                <input type="text" [(ngModel)]='user' class="border btn-sm" placeholder="Username..." name="username">
+                <button type="submit" class="btn btn-sm btn-success mx-1">View</button>
+            </div>
+        </form>
         <div class="col-sm-12 col-md-10 col-lg-8 p-2">
-            <div class="card bg-light">
+            <div class="card bg-light" *ngIf="items.login">
                 <div class="card-header text-center h4 font-weight-bold">
                     Github @{{items.login}}
                 </div>
@@ -9,12 +15,31 @@
                     <div class="avatar">
                         <img src="{{items.avatar_url}}" height="150px" class="card-image rounded" alt="Avatar Image">
                     </div>
-                    <div class="card-text">
-                        <span class="h4">My Repositories</span><br>
-                        <span class="small font-italic">@{{items.login}}</span>
+                    <div class="card-text text-capitalize" *ngIf="items.login!='**Not Found!**'">
+                        <p class="h5 text-center">{{items.login}}'s repositories ({{items.repos.length}})</p>
+                        <div class="row">
+                            <div class="col-md-6 my-1" *ngFor='let repo of items.repos'>
+                                <a href="{{repo.html_url}}" target="_blank" class="text border-bottom">
+                                    <span class="">{{repo.name}}</span> <br>
+                                    <span class="small px-1" *ngIf="repo.description">{{repo.description}}</span>
+                                    <span class="small px-1" *ngIf="!repo.description">No Description</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .text {
+        height: 100%;
+        display: flex; flex-direction: column;
+        justify-content:center;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>

@@ -4,6 +4,7 @@
 
 export const environment = {
   enableDebug: false,
+  production:true,
   access_token:'839d7a02aff2db8b392082d629e69784f55f1880'
 };
 
