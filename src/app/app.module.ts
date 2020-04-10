@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 const appRoutes: Routes = [
   { path: 'search/repos', component: RepoSearchComponent},
   { path: 'search/users', component: UserSearchComponent},
+  { path: '', component: GithubProfileComponent},
 ]
 @NgModule({
   declarations: [

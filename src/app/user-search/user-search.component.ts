@@ -10,7 +10,7 @@ import { UserSearchInterface } from './user-search.interface';
 export class UserSearchComponent implements OnInit {
   searchKeywords:string;
   apiUrl = 'https://api.github.com/search/users?q=';
-  items:[];total_count:number;
+  items:[];total_count=0;
   constructor(private http:HttpClient) { }
   ngOnInit(): void {}
 

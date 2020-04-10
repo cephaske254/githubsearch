@@ -14,7 +14,7 @@ export class RepoSearchComponent implements OnInit {
   constructor(private http: HttpClient, ) { }
 
   ngOnInit(): void { }
-  items: []; total_count:number;
+  items: []; total_count=0;
   searchRepos() {
     let searchPromise = new Promise((proceed, terminate) => {
       this.http.get<RepoSearchInterface>(this.apiUrl + this.searchKeywords).toPromise().then(data => {
