@@ -10,7 +10,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component'
 const appRoutes: Routes = [
   { path: 'search/repos', component: RepoSearchComponent},
   { path: 'search/users', component: UserSearchComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     RepoSearchComponent,
     UserSearchComponent,
-    GithubProfileComponent
+    GithubProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
