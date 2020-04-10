@@ -10,7 +10,7 @@ import { UserSearchInterface } from './user-search.interface';
 export class UserSearchComponent implements OnInit {
   searchKeywords:string;
   apiUrl = 'https://api.github.com/search/repositories?q=';
-  items:[];
+  items:[];total_count:number;
   constructor(private http:HttpClient) { }
   ngOnInit(): void {}
 
@@ -18,12 +18,15 @@ export class UserSearchComponent implements OnInit {
     let searchPromise = new Promise((proceed,terminate)=>{
       this.http.get<UserSearchInterface>(this.apiUrl+this.searchKeywords).toPromise().then(data=>{
         //requested successfully
+        this.items= data['items'];
+        this.total_count= data['total_count'];
         proceed();
       },error=>{
         //terminate if failed
         terminate()
       })
     })
+    searchPromise;
   }
 
 }
